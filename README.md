@@ -1,3 +1,5 @@
+https://git.heroku.com/cande-bloccit.git
+
 == README
 
 This README would normally document whatever steps are necessary to get the
