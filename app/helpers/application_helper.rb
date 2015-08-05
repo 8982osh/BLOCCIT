@@ -1,5 +1,7 @@
 module ApplicationHelper
+  def my_name
+  "Cande"
+  end
 end
 
-module My_nameHelper
-end
+
