@@ -39,10 +39,10 @@
     puts "Post already exits"
  end
  
- comment = Comment.find_by(post_id: 1, body: 'Create posting for dog snacks')
+ comment = Comment.find_by(post_id: post, body: 'Create posting for dog snacks')
  if comment.nil? 
     Comment.create!(
-      post_id: 1,
+      post_id: post,
       body: "Create posting for dog snacks"
  )
   else
