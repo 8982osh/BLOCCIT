@@ -24,11 +24,13 @@
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
  
- #Second post
+
  #posts = Post.where(title: 'Dog snacks').where(body: 'The best ingredients for the tastiest snacks')
  #if posts.count > 0
     #code
  #end
+ 
+ #Second post
  post = Post.find_by(title: 'Dog snacks', body: 'The best ingredients for the tastiest snacks')
  if post.nil?
     Post.create!(
