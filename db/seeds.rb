@@ -35,4 +35,11 @@
   
    puts "Unique post finished."
    
+   #Advertisement
+   #Advertisement.create!(
+    #title: "Dog Collars",
+    #copy: "Assorted colors and styles."
+    #price: 5
+   #)
+   
 
