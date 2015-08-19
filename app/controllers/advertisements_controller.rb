@@ -7,3 +7,5 @@ class AdvertisementsController < ApplicationController
     @advertisement = Advertisement.find(params[:id])
   end
 end
+
+
