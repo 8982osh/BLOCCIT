@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :questions
 
   resources :posts
+  
+  #match 'todos/complete' => 'todos#complete', :via => :post
 
   get 'about' => 'welcome#about'
 
