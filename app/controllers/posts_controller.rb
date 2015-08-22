@@ -37,5 +37,8 @@ class PostsController < ApplicationController
        render :edit
      end
    end
+<<<<<<< HEAD
    
+=======
+>>>>>>> checkpoint-35-morecrud
 end
