@@ -1,13 +1,27 @@
-<!--<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
--->
-
-<%= form_for @question do |f| %>
-   <%= f.label :title %>
-   <%= f.text_field :title %>
+<h1>New Question</h1>
  
-   <%= f.label :body %>
-   <%= f.text_area :body %>
- 
-   <%= f.submit "Save" %>
- <% end %>
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for submitting questions</p>
+     <ul>
+       <li>Keep it simple.</li>
+       <li>Enter one question at a time.</li>
+       <li>Click the checkbox on the next page if your question is answered.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @question do |f| %>
+       <div class="form-group">
+         <%= f.label :title %>
+         <%= f.text_field :title, class: 'form-control', placeholder: "Enter question title" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :body %>
+         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter your question:" %>
+       </div>
+       <div class="form-group">
+         <%= f.submit "Save", class: 'btn btn-success' %>
+       </div>
+     <% end %>
+   </div>
+ </div>

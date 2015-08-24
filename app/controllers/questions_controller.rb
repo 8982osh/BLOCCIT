@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
+  
   def index
     @questions = Question.all
+    @title_search = Question.search(params[:search])
   end
 
   def show
@@ -8,7 +10,8 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = Question.new(params[:id])
+    @question.save
   end
 
   def edit
@@ -16,9 +19,9 @@ class QuestionsController < ApplicationController
   end
   
   def create
-    @question = Question.new(params.require(:post).permit(:title, :body))
+    @question = Question.new(params.require(:question).permit(:title, :body))
      if @question.save
-       flash[:notice] = "Question was saved."
+       flash[:notice] = "Your question was saved."
        redirect_to @question
      else
        flash[:error] = "There was an error saving the question. Please try again."
@@ -28,7 +31,7 @@ class QuestionsController < ApplicationController
   
   def update
     @question = Question.find(params[:id])
-     if @question.update_attributes(params.require(:post).permit(:title, :body))
+     if @question.update_attributes(params.require(:question).permit(:title, :body))
        flash[:notice] = "Question was updated."
        redirect_to @question
      else
@@ -38,6 +41,19 @@ class QuestionsController < ApplicationController
   end
   
   def destroy
-    
+    @question = Question.destroy(params[:id])
+    #@question = Question.find(params[:id])
+    #@question.destroy
+    flash[:notice] = "Your question has been removed."
+    redirect_to @question
   end
+#for checkbox  
+  def resolved
+    @question = Question.find(params[question:id])
+    redirect_to @question
+  end
+  #search for title
+  #def find
+  #  @question = Question.find(params[:search])
+  #end
 end
