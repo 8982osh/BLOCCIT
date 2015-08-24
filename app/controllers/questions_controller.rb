@@ -2,7 +2,12 @@ class QuestionsController < ApplicationController
   
   def index
     @questions = Question.all
-    @title_search = Question.search(params[:search])
+    if params[:search]
+      @questions = Question.search(params[:search])
+    else
+      flash[:error] = "There is no title by that name. Please try again or create new question."
+       render :new
+    end
   end
 
   def show
