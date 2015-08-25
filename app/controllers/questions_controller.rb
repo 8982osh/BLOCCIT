@@ -5,8 +5,8 @@ class QuestionsController < ApplicationController
     if params[:search]
       @questions = Question.search(params[:search])
     else
-      flash[:error] = "There is no title by that name. Please try again or create new question."
-       render :new
+      #flash[:error] = "There is no title by that name. Please try again or create new question."
+       #redirect_to @question
     end
   end
 
@@ -52,6 +52,7 @@ class QuestionsController < ApplicationController
     flash[:notice] = "Your question has been removed."
     redirect_to @question
   end
+
 #for checkbox  
   def resolved
     @question = Question.find(params[question:id])
