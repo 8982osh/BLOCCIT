@@ -8,8 +8,12 @@
 <h1>List of All Questions</h1>
 
 <% @questions.each do |question| %>
-<%#check_box ("question", "resolved", {}, unchecked_value="0") %>
   <h3><p><%= link_to question.title, question %></p></h3>
+    <div class="form-group">
+      <%= f.label :resolved %>
+      <%= f.check_box :resolved %>
+    </div>
+   <p>Resolved: <%= @question.resolved %></p>
   <p><%= link_to question.body, question %></p>
 <% end %>
 

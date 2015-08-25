@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
   
   def index
-    @questions = Question.all
+    
     if params[:search]
-      @questions = Question.search(params[:search])
+      @questions = Question.where(title: params[:search])
     else
+      @questions = Question.all
       #flash[:error] = "There is no title by that name. Please try again or create new question."
        #redirect_to @question
     end
@@ -17,6 +18,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new(params[:id])
     @question.save
+    #
   end
 
   def edit
@@ -36,7 +38,7 @@ class QuestionsController < ApplicationController
   
   def update
     @question = Question.find(params[:id])
-     if @question.update_attributes(params.require(:question).permit(:title, :body))
+     if @question.update_attributes(params.require(:question).permit(:title, :body, :resolved))
        flash[:notice] = "Question was updated."
        redirect_to @question
      else
@@ -58,6 +60,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[question:id])
     redirect_to @question
   end
+  
   #search for title
   #def find
   #  @question = Question.find(params[:search])
