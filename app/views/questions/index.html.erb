@@ -9,12 +9,7 @@
 
 <% @questions.each do |question| %>
   <h3><p><%= link_to question.title, question %></p></h3>
-    <div class="form-group">
-      <%= f.label :resolved %>
-      <%= f.check_box :resolved %>
-    </div>
-   <p>Resolved: <%= @question.resolved %></p>
   <p><%= link_to question.body, question %></p>
+  <p>Resolved: <%= question.resolved %></p>
 <% end %>
-
 

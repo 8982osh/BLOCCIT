@@ -1,13 +1,10 @@
 class QuestionsController < ApplicationController
   
-  def index
-    
+  def index   
     if params[:search]
       @questions = Question.where(title: params[:search])
     else
       @questions = Question.all
-      #flash[:error] = "There is no title by that name. Please try again or create new question."
-       #redirect_to @question
     end
   end
 
@@ -49,8 +46,6 @@ class QuestionsController < ApplicationController
   
   def destroy
     @question = Question.destroy(params[:id])
-    #@question = Question.find(params[:id])
-    #@question.destroy
     flash[:notice] = "Your question has been removed."
     redirect_to @question
   end
@@ -58,11 +53,5 @@ class QuestionsController < ApplicationController
 #for checkbox  
   def resolved
     @question = Question.find(params[question:id])
-    redirect_to @question
   end
-  
-  #search for title
-  #def find
-  #  @question = Question.find(params[:search])
-  #end
 end
