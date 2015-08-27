@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   skip_before_action :flash_attack, only: [:index, :new]
   
   def flash_attack
-    flash[:notice] = "This is a flash."
+    @posts = Post.all
+    flash[:notice] = "This is a flash notice."
     #redirect_to @posts
   end
   
