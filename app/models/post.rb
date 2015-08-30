@@ -5,8 +5,8 @@ class Post < ActiveRecord::Base
   default_scope { order('created_at DESC')}
   #end
 
-  
-  scope :ordered_by_title, -> { where(title: 'title') }
-  scope :ordered_by_reverse_created_at, -> { where(created_at: 'datetime') }
+  scope :ordered_by_title, -> { order(:title) }
+  #scope :ordered_by_reverse_created_at, -> { order(:reverse_created_at) }
+  scope :ordered_by_reverse_created_at, -> { order(:created_at) }
 end
   
