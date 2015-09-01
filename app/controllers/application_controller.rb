@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
   
   def flash_attack
-    @posts = Post.find(params[:id])
+    #@posts = Post.find(params[:id])
     flash[:notice] = "This is a flash notice."
-  
+    #redirect_to @post
   end
 end
