@@ -1,29 +1,28 @@
 class PostPolicy < ApplicationPolicy
   
-  class Scope
-    #attr_reader :user, :post
+  #class Scope
+  #  attr_reader :user, :post
     
-    #def initialize(user, post)
-    #  @user = user
-    #  @post = post
-    #end
+  #  def initialize(user, post)
+  #    @user = user
+  #    @post = post
+  #  end
     
     #display diff sets of posts based on role of user. admin & mods see all posts,
     #members only see their posts, guest see no posts
+  def resolve
     if @user.admin? || @user.moderator?
-      #@user == 'admin' || @user == 'moderator'
-       @posts = Post.all
-       authorize @posts
+        #@user == 'admin' || @user == 'moderator'
+       scope.all
     if @user.member?
-      #@user == 'member'
-       # @user.posts = Post.find(params[:id])
-        authorize @post
+        #@user == 'member'
+       scope.where(current_user: user)
     else
-        @user == 'guest'
-        
+       flash[:notice] = "Guests do not have access to view posts."
     end
-    end  
-  #end
+    end
+  end
+
 
   def index?
     true
