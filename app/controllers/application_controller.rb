@@ -7,13 +7,10 @@ class ApplicationController < ActionController::Base
   protected
   
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    
+    devise_parameter_sanitizer.for(:sign_up) << :name  
   end
   
   def flash_attack
-    #@posts = Post.find(params[:id])
     flash[:notice] = "This is a flash notice."
-    #redirect_to @post
   end
 end

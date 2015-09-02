@@ -1,14 +1,6 @@
-class PostsController < ApplicationController
-  
-  #before_action :flash_attack
+class PostsController < ApplicationController  
   
   skip_before_action :flash_attack, only: [:index, :new]
-  
-  #def flash_attack
-  #  @posts = Post.find(params[:id])
-  #  flash[:notice] = "This is a flash notice."
-    #redirect_to @posts
-  #end
   
   def index
     @posts = Post.all
