@@ -65,7 +65,7 @@
  puts "#{Comment.count} comments created"
  
  #Second post
- #  Post.create!(
+ #   Post.create!(
  #   title: "Dog snacks",
  #   body: "The best ingredients for the tastiest snacks."
  # )
