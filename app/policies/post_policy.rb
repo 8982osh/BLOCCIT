@@ -1,12 +1,12 @@
 class PostPolicy < ApplicationPolicy
   
-  #class Scope
-  #  attr_reader :user, :post
+  class Scope
+    attr_reader :user, :scope
     
-  #  def initialize(user, post)
-  #    @user = user
-  #    @post = post
-  #  end
+  def initialize(user, scope)
+      @user = user
+      @scope = scope
+  end
     
     #display diff sets of posts based on role of user. admin & mods see all posts,
     #members only see their posts, guest see no posts
@@ -26,5 +26,6 @@ class PostPolicy < ApplicationPolicy
 
   def index?
     true
+  end
   end
 end
