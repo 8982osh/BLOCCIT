@@ -12,4 +12,5 @@ class TopicPolicy < ApplicationPolicy
   create?
  end
 end
+
   
