@@ -11,10 +11,10 @@
    user.save!
  end
  users = User.all
- 
+   
  #Create topics
  15.times do
-   Topc.create!(
+   Topic.create!(
     name:        Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph
    )
@@ -28,7 +28,7 @@
      topic:  topics.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
-     )  
+   )  
  end
  posts = Post.all
 
@@ -41,12 +41,12 @@
  end
  
 #Create the admin user
- admin = User.new(
+  admin = User.new(
   name:     'Admin User',
   email:    'admin@example.com',
   password: 'helloworld',
   role:     'admin'
- )
+  )
  admin.skip_confirmation!
  admin.save!
  
@@ -61,11 +61,11 @@
  moderator.save!
  
 #Create the members
- member = User.new(
+   member = User.new(
    name:     'Member User',
    email:    'member@example.com',
    password: 'helloworld'
-)
+   )
  member.skip_confirmation!
  member.save!
  

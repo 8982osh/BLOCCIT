@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903204058) do
+ActiveRecord::Schema.define(version: 20150906025456) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20150903204058) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "topic_id"
+    t.integer  "summary_id"
   end
 
+  add_index "posts", ["summary_id"], name: "index_posts_on_summary_id"
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
@@ -46,6 +48,13 @@ ActiveRecord::Schema.define(version: 20150903204058) do
     t.string   "title"
     t.text     "body"
     t.boolean  "resolved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
