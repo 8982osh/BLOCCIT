@@ -8,3 +8,5 @@ class CreateSummaries < ActiveRecord::Migration
     end
   end
 end
+
+

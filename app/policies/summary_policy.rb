@@ -13,4 +13,6 @@ class SummaryPolicy < ApplicationPolicy
  end
 end
 
+
+
   
