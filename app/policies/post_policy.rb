@@ -21,12 +21,7 @@ class PostPolicy < ApplicationPolicy
       else
          #@user == 'member'
          scope.where(user: user)
-      #else
-      #   flash[:notice] = "Guests do not have access to view posts."
-      #end
       end
     end
- 
-
   end
 end
