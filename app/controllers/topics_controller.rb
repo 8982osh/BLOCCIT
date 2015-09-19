@@ -49,6 +49,8 @@
    def topic_params
       params.require(:post).permit(:name, :description)
    end
- end 
+ end
+ 
+ 
  
  
