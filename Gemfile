@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'redcarpet'
 gem 'devise'
 gem 'pundit'
 gem 'figaro', '1.0'
