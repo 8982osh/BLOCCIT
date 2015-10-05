@@ -1,5 +1,5 @@
  require 'faker'
- 
+
  #Create users
  5.times do
    user = User.new(
@@ -39,7 +39,9 @@
      body: Faker::Lorem.paragraph
    )  
  end
- 
+
+#Comment out for ckpoint 50 
+=begin
 #Create the admin user
  admin = User.new(
   name:     'Admin User',
@@ -88,5 +90,5 @@
   
  #  puts "Unique post finished."
  
- 
+=end 
 
