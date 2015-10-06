@@ -45,7 +45,9 @@ class PostsController < ApplicationController
    def update
      @topic = Topic.find(params[:topic_id])
      @post = Post.find(params[:id])
-     if @post = Post.new(post_params)
+     # reset the values for post
+     # save
+     if @post.update(post_params)
        #if @post.update_attributes(params.require(:post).permit(:title, :body))
        flash[:notice] = "Post was updated."
        redirect_to [@topic, @post]
@@ -58,6 +60,7 @@ class PostsController < ApplicationController
    private
    
    def post_params
-      params.require(:post).permit(:title, :body)
+      #params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:name, :image)
    end
 end

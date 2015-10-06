@@ -35,7 +35,8 @@
    def update
      @topic = Topic.find(params[:id])
      authorize @topic
-     if @topic = Topic.new(topic_params)
+     if @topic.update(topic_params)
+       #if @topic = Topic.new(topic_params)
        #@topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
        redirect_to @topic
      else
@@ -47,7 +48,8 @@
    private
    
    def topic_params
-      params.require(:post).permit(:name, :description)
+      #params.require(:post).permit(:title, :body)
+      params.require(:topic).permit(:name, :description)
    end
  end
  
