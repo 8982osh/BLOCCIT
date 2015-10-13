@@ -1,0 +1,6 @@
+<h3>Comment Page</h3>
+  <%= form_for [topic, post, comment] do |f| %>
+  <%= f.label "Comment" %>
+  <%= text_field(:comment, :body) %>
+  <%= f.submit "Create Comment" %>
+  <% end %>

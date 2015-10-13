@@ -1,0 +1,16 @@
+=begin
+Use it in posts#show view to show body of each comment already associated with the post
+This comment partial should render relevant info for single preexisting comment assoc with @post 
+Need to call it multiple times, rendering partial for each comment in @comments 
+This is a good candidate for an each loop
+=end
+
+
+<h3>Comment Page</h3>
+<%= form_for [@post, @comment], each do |f| %>
+  <%= f.label "Body" %>
+  <%= text_field(:comment, :body) %>
+  <%= f.submit "Create Comment" %>
+<% end %>
+
+
