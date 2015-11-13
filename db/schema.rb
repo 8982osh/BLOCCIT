@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151002025012) do
+=======
+ActiveRecord::Schema.define(version: 20151006233546) do
+>>>>>>> checkpoint-50-comments
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
@@ -26,9 +30,11 @@ ActiveRecord::Schema.define(version: 20151002025012) do
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -92,4 +98,5 @@ ActiveRecord::Schema.define(version: 20151002025012) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+end
 end
