@@ -20,10 +20,9 @@
     <h1>Comments</h1>
   </div>
 </div>
-<%= render partial: "comments/comment", locals: { post: @post, comment: @comment} %>
 <div class="row">
     <div class="col-md-12">
-      <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+      <%= render @comments %>
+      <%= render 'comments/form', topic: @topic, comment: @comment, post: @post %>
     </div>
   </div>
-<% end %>

@@ -1,17 +1,20 @@
 class CommentsController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @comment = Comment.new(params.require(:post).permit(:title, :body)
-    @post.user = current_user
-    @post = @comment
-    authorize @post
-    if @post.save
-     flash[:notice] = “Comment was saved.”
-     redirect_to [@comment, @post]
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user_id = current_user.id
+    #authorize @comment
+    if @comment.save
+     redirect_to [@topic, @post], notice: "Comment was saved."
     else
-    flash[:error] = “Error when saving comment.”
-    render :new
+     redirect_to [@topic, @post], notice:  "Error saving comment."
     end
+  end
+  
+  private
+  def comment_params
+  params.require(:comment).permit(:body)
   end
 end
 

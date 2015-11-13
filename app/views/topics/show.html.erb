@@ -14,21 +14,20 @@
              <%= link_to (markdown_to_html post.title), [@topic, post] %>
            </h4>
            <small>
-             <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
-             submitted <%= time_ago_in_words(@post.created_at) %> ago by
-             <%= @post.user.name %>
+             <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+             submitted <%= time_ago_in_words(post.created_at) %> ago by
+             <%= post.user.name %>
              <%= post.comments.count %> Comments
            </small>
          </div>
        </div>
      <% end %>
    </div>
-   <%= will_paginate @topics %>
+   <%= will_paginate @posts %>
    <div class="col-md-4">
      <% if policy(Post.new).create? %>
        <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
      <% end %>
    </div>
  </div
-   
    

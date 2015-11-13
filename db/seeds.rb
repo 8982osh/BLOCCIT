@@ -1,5 +1,8 @@
  require 'faker'
-
+ #Post.destroy_all
+ #Comment.destroy_all
+ #Topic.destroy_all
+ 
  #Create users
  5.times do
    user = User.new(
@@ -14,7 +17,7 @@
  
  #Create topics
  15.times do
-   Topc.create!(
+   Topic.create!(
     name:        Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph
    )
@@ -36,11 +39,11 @@
  100.times do
    Comment.create!(
      post: posts.sample,
+     user: users.sample, #comments must be assoc with users
      body: Faker::Lorem.paragraph
    )  
  end
 
-#Comment out for ckpoint 50 
 =begin
 #Create the admin user
  admin = User.new(
@@ -89,6 +92,6 @@
  #  )
   
  #  puts "Unique post finished."
- 
-=end 
+=end
+
 
