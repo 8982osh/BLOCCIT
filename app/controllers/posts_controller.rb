@@ -29,6 +29,9 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.topic = @topic
     authorize @post
+    @comment = Comment.new(params.require(:comment).permit(:title, :body))
+    @comment.user = user.present?
+    authorize @comment
     
     if @post.save
       flash[:notice] = "Post was saved."
