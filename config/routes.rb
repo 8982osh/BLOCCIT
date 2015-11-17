@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   
   resources :topics do
     resources :posts, except: [:index] do #nest comments under posts, only create routes needed
-    resources :comments, only: [:create, :destroy] 
-  end
+      resources :comments, only: [:create, :destroy] 
+    end
   end
   get 'about' => 'welcome#about'
 
