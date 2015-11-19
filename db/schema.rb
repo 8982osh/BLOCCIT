@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20151002025012) do
-=======
-ActiveRecord::Schema.define(version: 20151006233546) do
->>>>>>> checkpoint-50-comments
+#<<<<<<< HEAD
+#ActiveRecord::Schema.define(version: 20151002025012) do
+#=======
+#ActiveRecord::Schema.define(version: 20151006233546) do
+#>>>>>>> checkpoint-50-comments
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
