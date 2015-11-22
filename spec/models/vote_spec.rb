@@ -2,7 +2,7 @@ describe Vote do
   describe "validations" do
     
     before do
-      2.times { @post.votes.create(value: 1) }
+      3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }
     end
     
