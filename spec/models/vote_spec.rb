@@ -2,13 +2,26 @@ describe Vote do
   describe "validations" do
     
     before do
+      @post = Post.create(title: 'post title', body: 'post body')
       3.times { @post.votes.create(value: 1) }
       2.times { @post.votes.create(value: -1) }
     end
     
-    describe "value validation" do
-      it "only allows -1 or 1 as values" do
-        expect( @post.votes ).to eq(-1) or eq(1)
+    describe 'up_votes' do
+      it "counts the number of yes votes" do
+        expect( @post.up_votes ).to eq(3) 
+      end
+    end
+    
+    describe 'down_votes' do
+      it "counts the number of down votes" do
+        expect( @post.down_votes ).to eq(2) 
+      end
+    end
+    
+    describe 'counts' do
+      it "counts the total num of votes" do
+        expect( @post.points ).to eq(1)
       end
     end
   end
