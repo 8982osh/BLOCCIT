@@ -18,13 +18,13 @@ describe Post do
     
     dexcribe '#down_votes' do
       it "counts the number of votes with value = -1" do
-        exptect( @post.down_votes ).to eq(2)
+        expect( @post.down_votes ).to eq(2)
       end
     end
     
     describe '#points' do
       it "returns the sum of all down and up votes" do
-        exptect( @post.points ).to eq(1) #3-2
+        expect( @post.points ).to eq(1) #3-2
       end
     end
   end
