@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 describe Vote do
   describe "validations" do
     
@@ -25,4 +26,10 @@ describe Vote do
       end
     end
   end
+=======
+require 'rails_helper'
+
+RSpec.describe Vote, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+>>>>>>> checkpoint-49a-voting
 end
