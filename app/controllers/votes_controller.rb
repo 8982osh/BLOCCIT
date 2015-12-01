@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_action :load_post_and_vote
+  after_create: create_vote
   
   def up_vote
     update_vote!(1)
@@ -37,5 +38,9 @@ class VotesController < ApplicationController
       authorize @vote, :create?
       @vote.save
     end
+  end
+  
+  def create_vote
+    user.votes.create(value: 1, post: self)
   end
 end
