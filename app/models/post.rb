@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   mount_uploader :image, ImageUploader
   default_scope { order('rank DESC') } 
+  after_create :create_vote
   
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true

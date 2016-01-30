@@ -1,5 +1,6 @@
  require 'rails_helper'
- #require 'spec_helper'
+ 
+include TestFactories
 
  describe Vote do
    describe "validations" do
@@ -23,7 +24,7 @@
        #user = authenticated_user
        post = associated_post
        vote = Vote.new(value: 1, post: post)
-       #sign_in @user
+       # sign_in @user
 
        expect(post).to receive(:update_rank)
        vote.save
