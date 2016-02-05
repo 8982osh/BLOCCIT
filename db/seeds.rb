@@ -1,7 +1,9 @@
  require 'faker'
- #Post.destroy_all
- #Comment.destroy_all
- #Topic.destroy_all
+ if Rails.env == 'development'
+   Post.destroy_all
+   Comment.destroy_all
+   Topic.destroy_all
+  end
  
  #Create users
  5.times do
