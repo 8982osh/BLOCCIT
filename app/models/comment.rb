@@ -4,9 +4,9 @@ class Comment < ActiveRecord::Base
   
   validates :body, length: { minimum: 5 }
   validates :body, presence: true
-  validates :user_id, presence: 
+  validates :user_id, presence: true
 
-  after_create :sent_favorite_emails
+  after_create :send_favorite_emails
 
   private
 

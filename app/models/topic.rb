@@ -3,7 +3,13 @@ class Topic < ActiveRecord::Base
     
   validates :name, length: { minimum: 5 }
 
-  scope :visible_to, -> (user) { user ? all : where(public: true)}  
+  #scope :visible_to, -> (user) { user ? all : where(public: true)} 
+  #scope :visible_to, :publicly_viewable -> (user) { user ? all : where(publicly_viewable: true)} 
+  scope :visible_to, -> (user) { user ? all : :publicly_viewable } 
+  scope :publicly_viewable, -> { where(public: true) }
+  #scope :privately_viewable, -> (user) { user ? all: where(private: true)}
+  scope :privately_viewable, -> { where(public: false) }
+
 end
 
 

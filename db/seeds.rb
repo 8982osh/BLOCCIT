@@ -1,7 +1,7 @@
  require 'faker'
- #Post.destroy_all
- #Comment.destroy_all
- #Topic.destroy_all
+ Post.destroy_all
+ Comment.destroy_all
+ Topic.destroy_all
  
  #Create users
  5.times do
@@ -24,7 +24,7 @@
  end
  topics = Topic.all
  
-  #Create Posts
+#Create Posts
  50.times do
    post = Post.create!(
      user:   users.sample,
@@ -48,7 +48,7 @@
    )  
  end
 
-=begin
+
 #Create the admin user
  admin = User.new(
   name:     'Admin User',
@@ -78,10 +78,10 @@
  member.skip_confirmation!
  member.save!
  
- puts "Seed finished"
- puts "#{User.count} users created"
- puts "#{Post.count} posts created"
- puts "#{Comment.count} comments created"
+ #puts "Seed finished"
+ #puts "#{User.count} users created"
+ #puts "#{Post.count} posts created"
+ #puts "#{Comment.count} comments created"
  
  #Second post
  #  Post.create!(
@@ -96,6 +96,6 @@
  #  )
   
  #  puts "Unique post finished."
-=end
+
 
 
