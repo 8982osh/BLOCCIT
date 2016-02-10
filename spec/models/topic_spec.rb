@@ -18,26 +18,25 @@ describe Topic do
       it "returns a relation of all private topics" do 
         #add code
         expect(Topic.privately_viewable).to eq( [@private_topic] )
-        #expect(Topic.visible_to).to eq( [@private_topic] )
       end
     end
 
     describe "visible_to(user)" do
       it "returns all topics if the user is present" do
-        user = User.new
+        #user = User.new
+        user = true
         #add code
-        #expect(@user.topics.publicly_viewable.to eq( [@public_topic] )
-        #expect(Topic.publicly_viewable).to eq( [@public_topic] )
+        
         #expect(Topic.visible_to).to eq( [@private_topic] )
-        expect(Topic.visible_to(user)).to eq( [Topic.all] )	
+        expect(Topic.visible_to(user)).to eq(Topic.all)	
       end
 
       it "returns only public topics if user is nil" do
       	#add code
-      	user = User.to be_nil
+      	#user = User.false
       	#expect(Topic.publicly_viewable).to eq( [@public_topic] )
       	#expect(Topic.visible_to).to eq( [@private_topic] )
-      	expect(Topic.visible_to(nil)).to eq( [Topic.public] )
+      	expect(Topic.visible_to(nil)).to eq(Topic.public)
       end
     end
   end
