@@ -3,7 +3,10 @@ class Topic < ActiveRecord::Base
     
   validates :name, length: { minimum: 5 }
 
+
   scope :visible_to, -> (user) { user ? all : where(public: true)}  
+
+
 end
 
 
