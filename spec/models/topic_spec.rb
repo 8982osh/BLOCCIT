@@ -33,9 +33,6 @@ describe Topic do
 
       it "returns only public topics if user is nil" do
       	#add code
-      	#user = User.false
-      	#expect(Topic.publicly_viewable).to eq( [@public_topic] )
-      	#expect(Topic.visible_to).to eq( [@private_topic] )
       	expect(Topic.visible_to(nil)).to eq(Topic.public)
       end
     end
