@@ -11,3 +11,4 @@ class Topic < ActiveRecord::Base
 end
 
 
+# Topic.visible_to(nil)
