@@ -1,3 +1,7 @@
+include Warden::Test::Helpers
+Warden.text_reset!
+Warden.test_mode!
+
 require 'rails_helper'
 
 describe "Visiting profiles" do
@@ -43,7 +47,5 @@ describe "Test user visiting own profile" do
 	  	expect( page ).to have_content(@comment.body)
 	  end
     end
-end
-
-
+  end
 end
