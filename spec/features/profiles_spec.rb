@@ -1,7 +1,3 @@
-include Warden::Test::Helpers
-Warden.text_reset!
-Warden.test_mode!
-
 require 'rails_helper'
 
 describe "Visiting profiles" do
@@ -30,16 +26,19 @@ describe "Visiting profiles" do
 	  end
     end
 
-describe "Test user visiting own profile" do
 
 	before do
-	  user = FactoryGirl.create(:user)
-	  login_as(user, scope: :user)
+	  #login_as create(@user, scope: :user)
+	  #@user = 
+	  #@user = FactoryGirl.create(:user)
+      login_as(@user, scope: :user)
+      #login_as(@user, scope: :user)
 	end
 	
 	describe "signed in" do
+
 	  it "shows profile" do
-	  	visit user_path(@user)
+	    visit user_path(@user)
 	  	expect(current_path).to eq(user_path(@user))
 
 	  	expect( page ).to have_content(@user.name)
@@ -47,5 +46,9 @@ describe "Test user visiting own profile" do
 	  	expect( page ).to have_content(@comment.body)
 	  end
     end
+
+    after do
+      Warden.test_reset!
+    end
   end
-end
+#end

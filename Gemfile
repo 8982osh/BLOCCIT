@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+#gem 'factory_girl_rails', '~> 4.0'
 gem 'will_paginate', '~>3.0.5'
 gem 'fog'
 gem 'carrierwave'
@@ -58,6 +58,7 @@ group :development do
 end
 
 group :development, :test do
+  #gem 'factory_girl_rails', '~> 4.5'
   gem 'rspec-rails', '~>3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
