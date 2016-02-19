@@ -5,6 +5,7 @@ describe "Visiting profiles" do
   include TestFactories
   include Warden::Test::Helpers
   Warden.test_mode!
+  
 
 	before do
 	  @user = authenticated_user
@@ -29,8 +30,8 @@ describe "Visiting profiles" do
 
 	before do
 	  #login_as create(@user, scope: :user)
-	  #@user = 
-	  #@user = FactoryGirl.create(:user)
+	  #@user = create
+	  @user = FactoryGirl.create(:user)
       login_as(@user, scope: :user)
       #login_as(@user, scope: :user)
 	end
