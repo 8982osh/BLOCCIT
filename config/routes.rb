@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+ #Failure/Error: <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+ #ActionView::Template::Error:
+ # Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true 
+ default_url_options :host => "test@example.com" #Added to solve confirmation email error
 
   get 'comments/create'
 

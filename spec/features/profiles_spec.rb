@@ -3,9 +3,6 @@ require 'rails_helper'
 describe "Visiting profiles" do
 
   include TestFactories
-  include Warden::Test::Helpers
-  Warden.test_mode!
-  
 
 	before do
 	  @user = authenticated_user
@@ -29,16 +26,15 @@ describe "Visiting profiles" do
 
 
 	before do
-	  #login_as create(@user, scope: :user)
-	  #@user = create
-	  @user = FactoryGirl.create(:user)
+	  @user = User.create(email: 'test@example.com', password: '12345678')
+	  @user = skip.confirmation!
+	  @user.save
       login_as(@user, scope: :user)
-      #login_as(@user, scope: :user)
-	end
+    end
 	
-	describe "signed in" do
+	describe "user signed in" do
 
-	  it "shows profile" do
+	  it "shows profile users profile" do
 	    visit user_path(@user)
 	  	expect(current_path).to eq(user_path(@user))
 
@@ -46,10 +42,5 @@ describe "Visiting profiles" do
 	  	expect( page ).to have_content(@post.title)
 	  	expect( page ).to have_content(@comment.body)
 	  end
-    end
-
-    after do
-      Warden.test_reset!
-    end
-  end
-#end
+    end 
+end

@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  #made change for module 54 to solve confirmation url error.
+  default from: "test@example.com"
   layout 'mailer'
 end
