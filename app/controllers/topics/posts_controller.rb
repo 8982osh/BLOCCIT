@@ -85,5 +85,5 @@ class Topics::PostsController < ApplicationController
    def post_params
       #params.require(:post).permit(:title, :body)
       params.require(:post).permit(:name, :image)
-   end
+   end   
 end

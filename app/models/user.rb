@@ -37,3 +37,5 @@ class User < ActiveRecord::Base
         .order('rank DESC') #Instructs database to order results in descending order, by the rank that we created in this query. (rank = comment count + post count)
    end
 end
+
+
