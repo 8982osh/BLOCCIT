@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'newrelic_rpm'
-gem 'will_paginate', '~>3.0.5'
+gem 'will_paginate', '~> 3.0.5'
 gem 'fog'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -11,7 +11,7 @@ gem 'pundit'
 gem 'figaro', '1.0'
 gem 'faker'
 gem 'pry-rails'
-gem 'bootstrap-sass', '~>3.3.6'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -58,7 +58,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~>3.0'
+  gem 'rspec-rails', '~> 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
