@@ -1,36 +1,24 @@
 class CommentsController < ApplicationController
-  def create
-    #@topic = Topic.find(params[:topic_id])
-    #@post = @topic.posts.find(params[:post_id])
+
+def create
     @post = Post.find(params[:post_id])
     @comments = @post.comments
-    @comment = @post.comments.new(comment_params)
-    @comment.user_id = current_user.id
+
+    @comment = Comment.new( comment_params )
+    @comment.user = current_user
     @comment.post = @post
-    
-    authorize @comment
-    if @comment.save
-     redirect_to [@post.topic, @post], notice: "Comment was saved."
-    else
-     redirect_to [@post.topic, @post], notice:  "Error saving comment."   
-    end
-  end
-  
-  def destroy
-    @post = Post.find(params[:post_id])
-    @topic = @post.topic
-    @comment = @post.comments.find(params[:id])
+    @new_comment = Comment.new
     authorize @comment
 
-    if @comment.destroy
-      flash[:notice] = "Comment was removed."
+    if @comment.save
+      flash[:notice] = "Comment was created."
     else
-      flash[:error] = "Comment couldn't be deleted. Try again."
+      flash[:error] = "There was an error saving the comment. Please try again."
     end
 
     respond_to do |format|
       format.html
-      format.js  
+      format.js
     end
   end
   
